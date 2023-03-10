@@ -118,11 +118,3 @@ for (i in names(pars)) {
                          )
 }
 write.xlsx(tab, "res/mono_bayes_tab.xlsx", rowNames = F)
-
-# save pp checks
-for (i in vars[1:22]) {
-  for (j in vars[23:28]) {
-    pp_check(fit[[i]][[j]], nsamples = 1e2)
-    ggsave(paste0(dir, "ppc/", i, "_", j, ".jpg"), device = "jpeg")
-  }
-}

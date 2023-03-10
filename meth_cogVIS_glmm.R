@@ -171,22 +171,6 @@ for (i in names(mod)) {
 
 write.xlsx(tab_res, "resid/01_resid_tab.xlsx", rowNames = F)
 
-# graphical residual check
-for (i in names(mod)) {
-  for (j in names(mod[[i]])) {
-    for (k in names(mod[[i]][[j]])) {
-      for (l in names(mod[[i]][[j]][[k]])) {
-        for (m in names(mod[[i]][[j]][[k]][[l]])) {
-          jpeg(paste0(dir, "/resid/", i, "_", j, "_", k, "_", l, "_", m, ".jpg"),
-               height = 2 * 480, width = 2 * 480)
-          print(check_model(mod[[i]][[j]][[k]][[l]][[m]]))
-          dev.off()
-        }
-      }
-    }
-  }
-}
-
 # get parameters
 par <- list()
 for (i in names(mod)) {
